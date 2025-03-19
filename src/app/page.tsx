@@ -86,7 +86,8 @@ export default function Home() {
             Login
           </Link>
           <Link
-            href="#demo"
+            href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+            target="_blank"
             className="py-2.5 px-6 rounded-full text-base font-medium text-white bg-gradient-to-br from-[#22263B] to-[#FF7C7C] hover:shadow-md transition-all"
           >
             Book a demo
@@ -127,7 +128,8 @@ export default function Home() {
 
           <div className="mb-12 flex justify-center">
             <Link
-              href="#demo"
+              href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+              target="_blank"
               className="flex items-center justify-center gap-2 px-6 py-3 mb-[67px] rounded-full bg-gradient-to-br from-[#22263B] to-[#FF7C7C] text-white hover:opacity-90 transition-opacity"
             >
               <span>Let's chat</span>
@@ -599,7 +601,8 @@ export default function Home() {
             BOOK A DEMO TO SEE HOW AI CAN HELP YOU
           </p>
           <Link
-            href="#demo"
+            href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+            target="_blank"
             className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#22263B] transition-colors"
           >
             Book a demo
@@ -666,7 +669,8 @@ export default function Home() {
                 About us
               </Link>
               <Link
-                href="#demo"
+                href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+                target="_blank"
                 className="py-2 px-5 rounded-full text-[#22263B] bg-white hover:bg-[#FF7C7C] hover:text-white transition-colors"
               >
                 Book a demo
