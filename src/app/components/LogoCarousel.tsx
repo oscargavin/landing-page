@@ -9,7 +9,7 @@ const logos = [
   "/images/partner-4.png",
   "/images/partner-2.png",
   "/images/partner-1.png",
-  "/images/trevors.png",
+  "/images/partner-7.png",
   "/images/partner-6.png",
   "/images/partner-5.png",
 ];
