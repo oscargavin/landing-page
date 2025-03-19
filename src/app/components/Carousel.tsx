@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    logo: "/images/trevors-logo.png",
+    logo: "/images/partner-1.png",
     text: {
       start: '"',
       bold1: "OpenInfo have been great",
@@ -23,7 +23,7 @@ const testimonials = [
     company: "Trevors Foodservice",
   },
   {
-    logo: "/images/j&r.png",
+    logo: "/images/partner-7.png",
     text: {
       start: '"The launch has been ',
       bold1: "very successful",
@@ -40,7 +40,7 @@ const testimonials = [
     company: "J&R Foodservice",
   },
   {
-    logo: "/images/zooki.png",
+    logo: "/images/partner-4.png",
     text: {
       start: '"OpenInfo have been ',
       bold1: "great to work with",
