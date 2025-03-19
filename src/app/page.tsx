@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 import React from "react";
 import Carousel from "./components/Carousel";
+import LogoCarousel from "./components/LogoCarousel";
+import AnimatedImages from "./components/AnimatedImages";
+import { CountAnimation } from "@/components/ui/count-animation";
 
 export const metadata: Metadata = {
   title: "OpenInfo - AI for Food & Drink Wholesalers",
@@ -151,71 +154,7 @@ export default function Home() {
 
         {/* Partner logos */}
         <div className="w-full mx-auto">
-          <div className="flex flex-wrap justify-between items-center gap-6">
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-3.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-4.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-2.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-1.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/trevors.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-6.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-            <div className="h-12 flex items-center justify-center">
-              <Image
-                src="/images/partner-5.png"
-                alt="Partner logo"
-                width={160}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-          </div>
+          <LogoCarousel />
         </div>
       </section>
 
@@ -261,36 +200,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="order-1 lg:order-2 relative h-[500px] mb-10 lg:mb-0 -mt-32">
-              {/* Warehouse shelving image */}
-              <div className="absolute left-0 top-[40%] w-[70%] h-[60%] z-10">
-                <Image
-                  src="/images/about-3.jpg"
-                  alt="Food distribution"
-                  fill
-                  className="object-cover rounded-2xl shadow-lg"
-                />
-              </div>
-
-              {/* Yellow containers image */}
-              <div className="absolute right-0 top-[20%] w-[60%] h-[50%] z-20">
-                <Image
-                  src="/images/about-2.jpg"
-                  alt="Warehouse operations"
-                  fill
-                  className="object-cover rounded-2xl shadow-lg"
-                />
-              </div>
-
-              {/* Mushrooms image */}
-              <div className="absolute right-[15%] top-0 w-[50%] h-[45%] z-30">
-                <Image
-                  src="/images/about-1.jpg"
-                  alt="Wholesaler operations"
-                  fill
-                  className="object-cover rounded-2xl shadow-lg"
-                />
-              </div>
+            <div className="order-1 lg:order-2 mb-10 lg:mb-0 -mt-32">
+              <AnimatedImages />
             </div>
           </div>
         </div>
@@ -479,7 +390,7 @@ export default function Home() {
                       fill="#22263B"
                     />
                     <path
-                      d="M71.9575 44.1205V28.0762L62.8813 19H47.5508C46.2024 19 45.1102 20.0922 45.1102 21.4407V42.0294C44.7334 42.2444 44.5015 42.6456 44.5 43.0804V51.9492C44.5015 53.6332 45.8668 54.9985 47.5508 55H69.5168C71.2009 54.9985 72.5661 53.6332 72.5677 51.9492V45.1719C72.5661 44.7372 72.3343 44.3371 71.9575 44.1205ZM56.0932 51.5921C55.9711 51.769 55.8186 51.9231 55.6432 52.0467C55.2649 52.2999 54.8164 52.4265 54.3619 52.4082C54.0019 52.4189 53.6449 52.338 53.3246 52.1733C53.05 52.0253 52.8166 51.8087 52.6473 51.5479C52.4719 51.2748 52.3483 50.9712 52.2812 50.6539C52.1317 49.9675 52.1317 49.2582 52.2812 48.5718C52.3483 48.2514 52.4749 47.9478 52.6519 47.6748C52.8242 47.4124 53.0592 47.1973 53.3337 47.0478C53.6541 46.8831 54.011 46.8023 54.371 46.8145C54.7829 46.8053 55.1871 46.9121 55.5425 47.1195C55.724 47.2294 55.8751 47.3819 55.9864 47.5634C56.1298 47.8029 56.2396 48.0607 56.3129 48.3307L55.2435 48.587C55.1764 48.381 55.0651 48.1919 54.9201 48.0317C54.7661 47.8776 54.5525 47.7968 54.3344 47.812C54.2001 47.809 54.069 47.841 53.95 47.9036C53.8417 47.9646 53.7486 48.047 53.6754 48.1476C53.6007 48.2529 53.5396 48.3688 53.4969 48.4909C53.4496 48.619 53.4146 48.7517 53.3901 48.8859C53.3657 49.0186 53.3505 49.1529 53.3429 49.2886C53.3368 49.4213 53.3322 49.5418 53.3322 49.6501C53.3047 49.9078 53.3932 50.3639 53.5885 50.7788C53.7379 51.064 54.0415 51.2364 54.3634 51.2135C54.4869 51.2166 54.6105 51.1952 54.7264 51.1525C54.8241 51.1159 54.9125 51.0595 54.9873 51.0878C55.0635 51.013 55.1291 50.9276 55.1841 50.8361C55.2466 50.7308 55.303 50.624 55.3518 50.5127L56.4501 50.7979V50.7995C56.3601 51.0435 56.2396 51.277 56.0932 51.4921ZM60.1599 51.9826C59.748 52.2892 59.2401 52.4417 58.726 52.4097C58.3187 52.4082 57.9191 52.2999 57.5667 52.0955C57.3699 51.9902 57.1929 51.8499 57.0465 51.6821C56.8848 51.4869 56.7536 51.2687 56.6606 51.0338L57.6368 50.6066C57.6918 50.7272 57.7558 50.8431 57.826 50.9544C57.8916 51.0551 57.9694 51.1451 58.0609 51.2214C58.1524 51.2961 58.2562 51.3556 58.366 51.3938C58.4926 51.4365 58.6253 51.4578 58.758 51.4548C58.8587 51.4548 58.9594 51.4456 59.0585 51.4258C59.1501 51.4075 59.2385 51.3755 59.3179 51.3266C59.3941 51.2809 59.4551 51.2153 59.4979 51.136C59.5451 51.0414 59.568 50.9361 59.5634 50.8309C59.5573 50.6417 59.4521 50.4678 59.2858 50.3778C59.054 50.2268 58.8053 50.1048 58.546 50.0117C58.0914 49.8561 57.6643 49.6319 57.2799 49.3451C56.9825 49.0873 56.8192 48.706 56.8391 48.3124C56.8314 47.8929 57.0221 47.4948 57.3531 47.2355C57.7147 46.9441 58.1692 46.7931 58.6345 46.8083C59.0418 46.8022 59.4444 46.9121 59.7938 47.1241C59.9662 47.2278 60.1187 47.3621 60.2469 47.5192C60.3948 47.7068 60.5153 47.9143 60.6053 48.1339L59.5284 48.4634C59.4536 48.2727 59.3408 48.1004 59.1959 47.9554C59.0403 47.8182 58.8359 47.748 58.6284 47.7602C58.5491 47.7617 58.4682 47.7693 58.3904 47.7861C58.3142 47.8014 58.2394 47.8288 58.1708 47.867C58.0289 47.9448 57.942 48.0958 57.9481 48.259C57.9481 48.3353 57.9725 48.4085 58.0182 48.471C58.0808 48.5534 58.1616 48.622 58.2547 48.6693C58.5079 48.8081 58.7733 48.9271 59.0479 49.0202C59.449 49.1544 59.8258 49.3542 60.1614 49.6136C60.5123 49.879 60.706 50.3015 60.6816 50.7408C60.7075 51.2137 60.5153 51.6714 60.1599 51.9826ZM63.6302 52.3334H62.3855L60.9424 46.8847H62.1063L62.988 50.5548L63.9079 46.8847H65.0794L63.6302 52.3334ZM70.7371 43.9512H57.3653L55.9009 42.2763C55.6706 42.0109 55.335 41.8599 54.9826 41.8599H46.3305V21.4406C46.3305 20.7664 46.8766 20.2203 47.5509 20.2203H62.018V26.4989C62.018 27.1456 62.2758 27.7665 62.7334 28.2241C63.191 28.6818 63.8118 28.9395 64.4586 28.9395H70.7372L70.7371 43.9512Z"
+                      d="M71.9575 44.1205V28.0762L62.8813 19H47.5508C46.2024 19 45.1102 20.0922 45.1102 21.4407V42.0294C44.7334 42.2444 44.5015 42.6456 44.5 43.0804V51.9492C44.5015 53.6332 45.8668 54.9985 47.5508 55H69.5168C71.2009 54.9985 72.5661 53.6332 72.5677 51.9492V45.1719C72.5661 44.7372 72.3343 44.3371 71.9575 44.1205ZM56.0932 51.5921C55.9711 51.769 55.8186 51.9231 55.6432 52.0467C55.2649 52.2999 54.8164 52.4265 54.3619 52.4082C54.0019 52.4189 53.6449 52.338 53.3246 52.1733C53.05 52.0253 52.8166 51.8087 52.6473 51.5479C52.4719 51.2748 52.3483 50.9712 52.2812 50.6539C52.1317 50.9675 52.1317 50.2582 52.2812 48.5718C52.3483 48.2514 52.4749 47.9478 52.6519 47.6748C52.8242 47.4124 53.0592 47.1973 53.3337 47.0478C53.6541 46.8831 54.011 46.8023 54.371 46.8145C54.7829 46.8053 55.1871 46.9121 55.5425 47.1195C55.724 47.2294 55.8751 47.3819 55.9864 47.5634C56.1298 47.8029 56.2396 48.0607 56.3129 48.3307L55.2435 48.587C55.1764 48.381 55.0651 48.1919 54.9201 48.0317C54.7661 47.8776 54.5525 47.7968 54.3344 47.812C54.2001 47.809 54.069 47.841 53.95 47.9036C53.8417 47.9646 53.7486 48.047 53.6754 48.1476C53.6007 48.2529 53.5396 48.3688 53.4969 48.4909C53.4496 48.619 53.4146 48.7517 53.3901 48.8859C53.3657 49.0186 53.3505 49.1529 53.3429 49.2886C53.3368 49.4213 53.3322 49.5418 53.3322 49.6501C53.3047 49.9078 53.3932 50.3639 53.5885 50.7788C53.7379 51.064 54.0415 51.2364 54.3634 51.2135C54.4869 51.2166 54.6105 51.1952 54.7264 51.1525C54.8241 51.1159 54.9125 51.0595 54.9873 51.0878C55.0635 51.013 55.1291 50.9276 55.1841 50.8361C55.2466 50.7308 55.303 50.624 55.3518 50.5127L56.4501 50.7979V50.7995C56.3601 51.0435 56.2396 51.277 56.0932 51.4921ZM60.1599 51.9826C59.748 52.2892 59.2401 52.4417 58.726 52.4097C58.3187 52.4082 57.9191 52.2999 57.5667 52.0955C57.3699 51.9902 57.1929 51.8499 57.0465 51.6821C56.8848 51.4869 56.7536 51.2687 56.6606 51.0338L57.6368 50.6066C57.6918 50.7272 57.7558 50.8431 57.826 50.9544C57.8916 51.0551 57.9694 51.1451 58.0609 51.2214C58.1524 51.2961 58.2562 51.3556 58.366 51.3938C58.4926 51.4365 58.6253 51.4578 58.758 51.4548C58.8587 51.4548 58.9594 51.4456 59.0585 51.4258C59.1501 51.4075 59.2385 51.3755 59.3179 51.3266C59.3941 51.2809 59.4551 51.2153 59.4979 51.136C59.5451 51.0414 59.568 50.9361 59.5634 50.8309C59.5573 50.6417 59.4521 50.4678 59.2858 50.3778C59.054 50.2268 58.8053 50.1048 58.546 50.0117C58.0914 49.8561 57.6643 49.6319 57.2799 49.3451C56.9825 49.0873 56.8192 48.706 56.8391 48.3124C56.8314 47.8929 57.0221 47.4948 57.3531 47.2355C57.7147 46.9441 58.1692 46.7931 58.6345 46.8083C59.0418 46.8022 59.4444 46.9121 59.7938 47.1241C59.9662 47.2278 60.1187 47.3621 60.2469 47.5192C60.3948 47.7068 60.5153 47.9143 60.6053 48.1339L59.5284 48.4634C59.4536 48.2727 59.3408 48.1004 59.1959 47.9554C59.0403 47.8182 58.8359 47.748 58.6284 47.7602C58.5491 47.7617 58.4682 47.7693 58.3904 47.7861C58.3142 47.8014 58.2394 47.8288 58.1708 47.867C58.0289 47.9448 57.942 48.0958 57.9481 48.259C57.9481 48.3353 57.9725 48.4085 58.0182 48.471C58.0808 48.5534 58.1616 48.622 58.2547 48.6693C58.5079 48.8081 58.7733 48.9271 59.0479 49.0202C59.449 49.1544 59.8258 49.3542 60.1614 49.6136C60.5123 49.879 60.706 50.3015 60.6816 50.7408C60.7075 51.2137 60.5153 51.6714 60.1599 51.9826ZM63.6302 52.3334H62.3855L60.9424 46.8847H62.1063L62.988 50.5548L63.9079 46.8847H65.0794L63.6302 52.3334ZM70.7371 43.9512H57.3653L55.9009 42.2763C55.6706 42.0109 55.335 41.8599 54.9826 41.8599H46.3305V21.4406C46.3305 20.7664 46.8766 20.2203 47.5509 20.2203H62.018V26.4989C62.018 27.1456 62.2758 27.7665 62.7334 28.2241C63.191 28.6818 63.8118 28.9395 64.4586 28.9395H70.7372L70.7371 43.9512Z"
                       fill="#22263B"
                     />
                     <defs>
@@ -502,6 +413,12 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="flex justify-center items-center max-w-6xl mx-auto text-gray-700 text-center font-inter my-16">
+          <h1 className="text-5xl ">
+            Drive growth, improve customer service and save time through
+            automated order processing
+          </h1>
+        </div>
       </section>
 
       {/* Feature 1 - IMPROVE CUSTOMER EXPERIENCE */}
@@ -522,10 +439,11 @@ export default function Home() {
             <div className="rounded-xl p-8">
               <div className="relative w-full h-96">
                 <Image
-                  src="/images/connections.png"
+                  src="/images/OrdersProcessing.gif"
                   alt="Customer communication channels"
                   fill
                   className="object-contain"
+                  unoptimized
                 />
               </div>
             </div>
@@ -543,7 +461,7 @@ export default function Home() {
                 <div className="order-2 lg:order-1">
                   <div className="relative w-full aspect-video h-96">
                     <Image
-                      src="/images/automated-po-processing.png"
+                      src="/images/processing.gif"
                       alt="PDF order processing automation"
                       fill
                       className="object-contain"
@@ -612,7 +530,7 @@ export default function Home() {
                 CUSTOMER ROI
               </span>
               <div className="flex items-center justify-center">
-                <span className="text-6xl font-normal">5</span>
+                <CountAnimation number={5} className="text-6xl font-normal" />
                 <span className="text-4xl font-medium mx-1">x</span>
               </div>
             </div>
@@ -622,7 +540,7 @@ export default function Home() {
                 REDUCED ERRORS
               </span>
               <div className="flex items-center justify-center">
-                <span className="text-6xl font-normal">50</span>
+                <CountAnimation number={50} className="text-6xl font-normal" />
                 <span className="text-4xl font-medium">%</span>
               </div>
             </div>
@@ -632,7 +550,7 @@ export default function Home() {
                 QUICKER PROCESSING
               </span>
               <div className="flex items-center justify-center">
-                <span className="text-6xl font-normal">90</span>
+                <CountAnimation number={90} className="text-6xl font-normal" />
                 <span className="text-2xl font-medium">%</span>
               </div>
             </div>

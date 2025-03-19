@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -56,13 +58,23 @@ const testimonials = [
 
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   const goToSlide = (index: number) => {
     setActiveIndex(index);
   };
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.8 }}
+      className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12"
+    >
       {/* Current slide */}
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-start md:gap-10">
@@ -134,7 +146,7 @@ const Carousel = () => {
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
