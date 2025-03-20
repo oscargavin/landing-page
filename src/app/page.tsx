@@ -635,7 +635,7 @@ export default function Home() {
                     SAVE TIME
                   </div>
                   <h3 className="text-3xl lg:text-4xl font-normal text-[#22263B] mb-2">
-                    <strong>Seamless integrate</strong> <br /> the latest AI
+                    <strong>Seamlessly integrate</strong> <br /> the latest AI
                     into your <br />
                     existing systems
                   </h3>
