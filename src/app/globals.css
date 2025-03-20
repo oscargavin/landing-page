@@ -120,3 +120,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Mobile menu animation */
+.mobile-menu {
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}

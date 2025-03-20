@@ -1,16 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
 import React from "react";
 import Carousel from "./components/Carousel";
 import LogoCarousel from "./components/LogoCarousel";
 import AnimatedImages from "./components/AnimatedImages";
 import { CountAnimation } from "@/components/ui/count-animation";
-
-export const metadata: Metadata = {
-  title: "OpenInfo - AI for Food & Drink Wholesalers",
-  description: "Automation solutions that work for you",
-};
+import { Typewriter } from "@/components/ui/typewriter-text";
 
 export default function Home() {
   return (
@@ -88,7 +85,7 @@ export default function Home() {
           <Link
             href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
             target="_blank"
-            className="py-2.5 px-6 rounded-full text-base font-medium text-white bg-gradient-to-br from-[#22263B] to-[#FF7C7C] hover:shadow-md transition-all"
+            className="py-2.5 px-6 rounded-full text-white bg-gradient-to-br from-[#22263B] to-[#FF7C7C] hover:shadow-md transition-all"
           >
             Book a demo
           </Link>
@@ -96,7 +93,14 @@ export default function Home() {
 
         {/* Mobile menu button (only shown on small screens) */}
         <div className="md:hidden">
-          <button className="flex items-center p-2">
+          <button
+            className="flex items-center p-2"
+            aria-label="Toggle mobile menu"
+            onClick={() => {
+              const mobileMenu = document.getElementById("mobile-menu");
+              mobileMenu?.classList.toggle("mobile-menu-active");
+            }}
+          >
             <svg
               width="24"
               height="24"
@@ -110,6 +114,60 @@ export default function Home() {
               />
             </svg>
           </button>
+
+          {/* Mobile menu dropdown */}
+          <div
+            id="mobile-menu"
+            className="mobile-menu absolute top-full right-0 left-0 bg-white shadow-md py-4 px-6 border-b border-[#E8E6E2] z-50 transform -translate-y-2 opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+          >
+            <div className="flex flex-col gap-6">
+              <Link
+                href="#product"
+                className="text-base font-medium text-[#22263B] hover:text-[#FF7C7C] transition-colors"
+                onClick={() => {
+                  document
+                    .getElementById("mobile-menu")
+                    ?.classList.remove("mobile-menu-active");
+                }}
+              >
+                Product
+              </Link>
+              <Link
+                href="#about"
+                className="text-base font-medium text-[#22263B] hover:text-[#FF7C7C] transition-colors"
+                onClick={() => {
+                  document
+                    .getElementById("mobile-menu")
+                    ?.classList.remove("mobile-menu-active");
+                }}
+              >
+                About us
+              </Link>
+              <Link
+                href="#login"
+                className="text-base font-medium text-[#22263B] hover:text-[#FF7C7C] transition-colors"
+                onClick={() => {
+                  document
+                    .getElementById("mobile-menu")
+                    ?.classList.remove("mobile-menu-active");
+                }}
+              >
+                Login
+              </Link>
+              <Link
+                href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+                target="_blank"
+                className="py-2.5 px-6 rounded-full text-white bg-gradient-to-br from-[#22263B] to-[#FF7C7C] hover:shadow-md transition-all w-full text-center"
+                onClick={() => {
+                  document
+                    .getElementById("mobile-menu")
+                    ?.classList.remove("mobile-menu-active");
+                }}
+              >
+                Book a demo
+              </Link>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -117,12 +175,22 @@ export default function Home() {
       <section className="pt-64 pb-16 px-4 sm:px-6 md:px-12 relative z-10 w-full">
         <div className="text-center w-full">
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-semibold text-[#22263B] leading-tight mb-[42px] font-inter">
-            Automation solutions that
-            <br />
-            work for you
+            <span className="block">
+              <span className="font-light">Automation solutions</span>
+              <span className="relative ml-2 md:ml-3">
+                <span className="bg-gradient-to-r from-[#22263B] to-[#FF7C7C] text-transparent bg-clip-text font-bold">
+                  that work
+                </span>
+                <span className="absolute -bottom-1 left-0 h-1 w-16 md:w-24 bg-gradient-[#FF7C7C] rounded-full transform-gpu"></span>
+              </span>
+            </span>
+            <span className="block mt-2">
+              <span className="font-normal">for your</span>
+              <span className="font-bold ml-2 md:ml-3">business</span>
+            </span>
           </h1>
 
-          <span className="text-[#22263B] text-xl font-semibold uppercase tracking-widest mb-[77px] block">
+          <span className="text-[#22263B] text-base lg:text-xl font-semibold uppercase tracking-widest mb-[77px] block">
             THE TRUSTED AI PARTNER FOR FOOD AND DRINK WHOLESALERS
           </span>
 
@@ -177,32 +245,32 @@ export default function Home() {
 
       {/* Who We Are Section */}
       <section
-        className="py-20 px-4 sm:px-12 lg:px-24 relative z-10 w-full"
+        className="py-20 mb-24 px-4 sm:px-12 lg:px-24 relative z-10 w-full"
         id="about"
       >
         <div className="max-w-7xl mx-auto">
-          <span className="text-[#FF7C7C] text-2xl font-bold uppercase tracking-widest mb-16 block">
+          <span className="text-[#FF7C7C] text-2xl font-bold uppercase tracking-widest mb-8 md:mb-16 block relative z-20">
             WHO WE ARE
           </span>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="order-2 lg:order-1 pr-0 lg:pr-12">
-              <p className="text-xl text-[#22263B] leading-relaxed mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div className="order-1 pr-0 lg:mt-16 relative z-20">
+              <p className="lg:text-3xl text-xl text-[#22263B] leading-relaxed mb-12">
                 We're based in London and work with wholesalers across the UK to
                 help them implement AI into their business.
               </p>
-              <p className="text-xl text-[#22263B] leading-relaxed mb-12">
+              <p className="lg:text-3xl text-xl text-[#22263B] leading-relaxed mb-12">
                 We take a people-first approach to AI. We work closely with your
                 team to understand your existing workflows and avoid disruption
                 to the way you like to do business.
               </p>
-              <p className="text-xl text-[#22263B] leading-relaxed">
+              <p className="lg:text-3xl text-xl text-[#22263B] leading-relaxed">
                 AI has the potential to transform all areas of your operation,
                 but people will always remain at the heart of great businesses.
               </p>
             </div>
 
-            <div className="order-1 lg:order-2 mb-10 lg:mb-0 -mt-32">
+            <div className="order-2 mb-16 pt-24 pl-12 lg:mt-0 lg:mb-32">
               <AnimatedImages />
             </div>
           </div>
@@ -211,29 +279,34 @@ export default function Home() {
 
       {/* What We Do Section */}
       <section
-        className="relative z-10 bg-gradient-to-b from-[#F5F5F5] via-[#FAFAFA] to-white"
+        className="relative z-10 bg-gradient-to-b from-[#F5F5F5] to-white"
         id="product"
       >
         {/* What We Do Header */}
-        <div className="py-16 min-h-[800px] flex items-center">
-          <div className="px-8 sm:px-12 lg:px-24 max-w-7xl mx-auto relative w-full">
+        <div className="lg:py-8 py-2 min-h-[600px] flex items-center lg:pt-32 border-t-2 border-black">
+          <div className="px-8 max-w-7xl mx-auto relative w-full">
             <span className="text-[#FF7C7C] text-lg font-bold uppercase tracking-widest mb-16 block">
               WHAT WE DO
             </span>
-            <div className="flex justify-between items-start">
-              <h2 className="text-3xl md:text-8xl text-[#22263B] leading-tight">
-                Workflow automation
+            <div className="flex justify-between items-start mb-32">
+              <h2 className="text-5xl lg:text-8xl text-[#22263B] font-inter leading-tight">
+                <span className="font-light">Workflow</span>
                 <br />
-                platform
+                <span className="font-semibold bg-gradient-to-r from-[#22263B] to-[#FF7C7C] text-transparent bg-clip-text">
+                  automation
+                </span>
+                <br />
+                <span className="font-bold relative">platform</span>
               </h2>
-              <div className="relative h-96 w-full">
-                <div className="absolute top-0 right-60 z-30 transform hover:-translate-y-2 transition-transform duration-300">
+              <div className="relative h-60 w-full">
+                <div className="absolute top-0 right-10 lg:right-60 z-30 transform hover:-translate-y-2 transition-transform duration-300">
                   <svg
                     width="109"
                     height="74"
                     viewBox="0 0 109 74"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-12 lg:w-42"
                   >
                     <foreignObject
                       x="-128.469"
@@ -297,13 +370,14 @@ export default function Home() {
                     </defs>
                   </svg>
                 </div>
-                <div className="absolute top-32 right-8 z-20 transform hover:-translate-y-2 transition-transform duration-300">
+                <div className="absolute top-16 lg:top-32 right-8 z-20 transform hover:-translate-y-2 transition-transform duration-300">
                   <svg
                     width="113"
                     height="74"
                     viewBox="0 0 113 74"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-12 lg:w-42"
                   >
                     <foreignObject
                       x="-128.469"
@@ -355,13 +429,14 @@ export default function Home() {
                     </defs>
                   </svg>
                 </div>
-                <div className="absolute top-64 right-32 z-10 transform hover:-translate-y-2 transition-transform duration-300">
+                <div className="absolute top-32 lg:top-64 right-16 lg:right-32 z-10 transform hover:-translate-y-2 transition-transform duration-300">
                   <svg
                     width="121"
                     height="74"
                     viewBox="0 0 121 74"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="w-12 lg:w-42"
                   >
                     <foreignObject
                       x="-128.469"
@@ -415,18 +490,84 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center max-w-6xl mx-auto text-gray-700 text-center font-inter my-16">
-          <h1 className="text-5xl ">
-            Drive growth, improve customer service and save time through
-            automated order processing
-          </h1>
+        <div className="bg-white rounded-xl shadow-md mx-4 sm:mx-8 md:mx-auto max-w-5xl mb-32 overflow-hidden">
+          <div className="flex flex-col">
+            {/* Main content with better spacing and typography */}
+            <div className="py-16 px-8 md:px-12">
+              <div className="max-w-3xl mx-auto flex flex-col items-center">
+                {/* Clean top label */}
+                <div className="bg-[#F8F9FA] px-4 py-1.5 rounded-full mb-8 inline-flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-[#FF7C7C] mr-2"></div>
+                  <span className="text-sm font-medium text-[#22263B] uppercase tracking-wider">
+                    Workflow Automation
+                  </span>
+                </div>
+
+                {/* Cleaner typewriter container */}
+                <div className="mb-8 text-center max-w-6xl">
+                  <div className="h-24 md:h-28 flex items-center justify-center">
+                    <Typewriter
+                      text={[
+                        "Drive growth",
+                        "Improve customer service",
+                        "Save time",
+                        "All through automated order processing",
+                      ]}
+                      speed={100}
+                      loop={true}
+                      className="text-4xl md:text-5xl lg:text-6xl font-inter font-bold text-[#22263B]"
+                    />
+                  </div>
+                </div>
+
+                {/* Clean, well-designed description box */}
+                <div className="w-full bg-[#F8F9FA] py-6 px-8 rounded-lg">
+                  <p className="text-[#22263B]/80 text-center text-lg pb-6">
+                    Streamline your operations with AI-powered automation that
+                    integrates seamlessly with your existing systems
+                  </p>
+                </div>
+
+                {/* Simple action button */}
+                <Link
+                  href="https://calendly.com/tom-morrison-openinfo/30min?month=2025-03"
+                  target="_blank"
+                  className="mt-10 flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#22263B] to-[#FF7C7C] text-white hover:shadow-md transition-all"
+                >
+                  <span>See how it works</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13 5l7 7-7 7"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M20 12H3"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Feature 1 - IMPROVE CUSTOMER EXPERIENCE */}
       <div className=" py-16 min-h-[400px] flex items-center relative z-20">
         <div className="px-8 sm:px-12 lg:px-24 max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center">
             <div>
               <div className="inline-block bg-[#FFBDBD] text-[#22263B] text-xs font-semibold px-4 py-2 rounded-lg tracking-widest mb-4">
                 IMPROVE CUSTOMER EXPERIENCE
@@ -438,7 +579,7 @@ export default function Home() {
               </h3>
             </div>
 
-            <div className="rounded-xl p-8">
+            <div>
               <div className="relative w-full h-96">
                 <Image
                   src="/images/OrdersProcessing.gif"
@@ -459,7 +600,7 @@ export default function Home() {
           {/* Feature 2 - DRIVE GROWTH */}
           <div className="bg-white py-16 min-h-[400px] flex items-center">
             <div className="px-8 sm:px-12 lg:px-24 max-w-7xl mx-auto w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="relative w-full aspect-video h-96">
                     <Image
@@ -471,11 +612,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="order-1 lg:order-2">
-                  <div className="inline-block bg-[#FFBDBD] text-[#22263B] text-xs font-semibold px-4 py-2 rounded-lg tracking-widest mb-32">
+                <div className="order-1 lg:order-2 lg:pl-10">
+                  <div className="inline-block bg-[#FFBDBD] text-[#22263B] text-xs font-semibold px-4 py-2 rounded-lg tracking-widest mb-4">
                     DRIVE GROWTH
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-normal text-[#22263B]">
+                  <h3 className="text-3xl lg:text-4xl font-normal text-[#22263B] ">
                     Process <strong className="font-semibold">3x</strong> sales
                     <br />
                     orders with the same team
@@ -489,7 +630,7 @@ export default function Home() {
           <div className="bg-white py-16 min-h-[400px] flex items-center">
             <div className="px-8 sm:px-12 lg:px-24 max-w-7xl mx-auto w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div className="order-2 lg:order-1">
+                <div className="order-1">
                   <div className="inline-block bg-[#FFBDBD] text-[#22263B] text-xs font-semibold px-4 py-2 rounded-lg tracking-widest mb-4">
                     SAVE TIME
                   </div>
@@ -500,7 +641,7 @@ export default function Home() {
                   </h3>
                 </div>
 
-                <div className="order-1 lg:order-2">
+                <div className="order-2">
                   <div className="flex flex-wrap gap-4 justify-center">
                     <div className="bg-white  px-4 py-2">
                       <Image
@@ -519,7 +660,7 @@ export default function Home() {
         </div>
 
         {/* ROI Metrics */}
-        <div className="mt-16 mb-24 bg-[#22263B] rounded-2xl p-12 mx-auto max-w-7xl text-white">
+        <div className="mt-16 mb-24 bg-[#22263B] rounded-2xl px-6 sm:px-8 md:px-12 py-12 mx-4 sm:mx-8 md:mx-auto max-w-7xl text-white">
           <div className="text-center mb-8">
             <span className="text-[#FF7C7C] text-sm font-bold uppercase tracking-widest block">
               BUILT TO DELIVER REAL VALUE
@@ -561,7 +702,13 @@ export default function Home() {
       </section>
 
       {/* People First Industry Section */}
-      <section className="py-48 w-full bg-[#F1F5F9] relative border-b border-t border-[#22263B] z-10">
+      <section
+        className="py-32 w-full relative z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, white 0%, #F1F5F9 20%, #E2E8F0 50%, #F1F5F9 80%, white 100%)",
+        }}
+      >
         <div className="max-w-7xl  mx-auto px-4">
           <span className="text-[#FF7C7C] text-sm font-bold uppercase tracking-widest mb-12 block">
             THE FUTURE OF WHOLESALE IS HUMAN
@@ -592,8 +739,8 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 max-w-7xl mx-auto relative z-10 bg-white">
-        <div className="bg-gradient-to-br from-[#22263B] to-[#FF7C7C] rounded-3xl p-12 text-center mx-auto">
+      <section className="pb-32 max-w-7xl mx-auto relative z-10 bg-white">
+        <div className="bg-gradient-to-br from-[#22263B] to-[#FF7C7C] rounded-3xl px-6 sm:px-8 md:px-12 py-12 text-center mx-4 sm:mx-8 md:mx-auto shadow-xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02] cursor-pointer">
           <h2 className="text-4xl font-semibold text-white mb-4">
             See it in action
           </h2>
@@ -621,7 +768,7 @@ export default function Home() {
                 strokeLinejoin="round"
               />
               <path
-                d="M21 12H3"
+                d="M20 12H3"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
